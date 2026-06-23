@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TravelX</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <h2>TravelX ✈️</h2>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="mybookings.html">My Bookings</a>
+    <a href="wishlist.html">Wishlist ❤️</a>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header>
+  <h1>Explore The World ✈️</h1>
+  <p>Discover amazing destinations at best prices</p>
+</header>
+
+<!-- SEARCH -->
+<input type="text" id="search" placeholder="🔍 Search destination..." onkeyup="searchPlace()">
+
+<!-- FILTERS -->
+<div class="filters">
+  <select id="budgetFilter" onchange="applyFilters()">
+    <option value="">💰 All Budgets</option>
+    <option value="low">Under ₹50K</option>
+    <option value="high">Above ₹50K</option>
+  </select>
+  <select id="locationFilter" onchange="applyFilters()">
+    <option value="">🌍 All Types</option>
+    <option value="beach">🏖️ Beach</option>
+    <option value="city">🏙️ City</option>
+    <option value="mountains">⛰️ Mountains</option>
+    <option value="island">🏝️ Island</option>
+  </select>
+  <select id="ratingFilter" onchange="applyFilters()">
+    <option value="">⭐ All Ratings</option>
+    <option value="5">⭐⭐⭐⭐⭐</option>
+    <option value="4">⭐⭐⭐⭐</option>
+  </select>
+</div>
+
+<!-- PLACES -->
+<section class="places" id="placesGrid">
+
+  <div class="card" data-price="50000" data-type="city" data-rating="4" onclick="openPlace('Paris',50000,'City of love & Eiffel Tower','city')">
+    <img src="anders-jilden-cYrMQA7a3Wc-unsplash.jpg">
+    <!-- <div class="card-img-placeholder" style="background:linear-gradient(135deg,#667eea,#764ba2)"> -->
+      <!-- <span class="place-icon">🗼</span>
+    </div> -->
+    <div class="card-content">
+      <h3>Paris</h3>
+      <p class="price-tag">₹50,000</p>
+      <p class="days-tag">5 Days • City</p>
+      <div class="stars">⭐⭐⭐⭐</div>
+    </div>
+  </div>
+
+  <div class="card" data-price="40000" data-type="city" data-rating="5" onclick="openPlace('Dubai',40000,'Luxury city with Burj Khalifa','city')">
+    <!-- <div class="card-img-placeholder" style="background:linear-gradient(135deg,#f7971e,#ffd200)">
+      <span class="place-icon">🏙️</span>
+    </div> -->
+    <img src="braden-collum-75XHJzEIeUc-unsplash.jpg">
+    <div class="card-content">
+      <h3>Dubai</h3>
+      <p class="price-tag">₹40,000</p>
+      <p class="days-tag">4 Days • City</p>
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+    </div>
+  </div>
+
+  <div class="card" data-price="70000" data-type="beach" data-rating="5" onclick="openPlace('Maldives',70000,'Crystal blue waters & luxury resorts','beach')">
+    <!-- <div class="card-img-placeholder" style="background:linear-gradient(135deg,#00b4db,#0083b0)">
+      <span class="place-icon">🏝️</span>
+    </div> -->
+    <img src="manuel-cosentino-n--CMLApjfI-unsplash.jpg">
+    <div class="card-content">
+      <h3>Maldives</h3>
+      <p class="price-tag">₹70,000</p>
+      <p class="days-tag">6 Days • Beach</p>
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+    </div>
+  </div>
+
+  <div class="card" data-price="80000" data-type="city" data-rating="5" onclick="openPlace('Japan',80000,'Technology, culture & cherry blossoms','city')">
+    <!-- <div class="card-img-placeholder" style="background:linear-gradient(135deg,#f953c6,#b91d73)">
+      <span class="place-icon">⛩️</span>
+    </div> -->
+    <img src="neom-wTmGtmGQCjQ-unsplash.jpg">
+    <div class="card-content">
+      <h3>Japan</h3>
+      <p class="price-tag">₹80,000</p>
+      <p class="days-tag">7 Days • City</p>
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+    </div>
+  </div>
+
+  <div class="card" data-price="90000" data-type="mountains" data-rating="5" onclick="openPlace('Switzerland',90000,'Snowy Alps & scenic landscapes','mountains')">
+    <!-- <div class="card-img-placeholder" style="background:linear-gradient(135deg,#4facfe,#00f2fe)">
+      <span class="place-icon">🏔️</span>
+    </div> -->
+    <img src="roman-kraft-g_gwdpsCVAY-unsplash.jpg">
+    <div class="card-content">
+      <h3>Switzerland</h3>
+      <p class="price-tag">₹90,000</p>
+      <p class="days-tag">7 Days • Mountains</p>
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+    </div>
+  </div>
+
+  <div class="card" data-price="35000" data-type="beach" data-rating="4" onclick="openPlace('Thailand',35000,'Beaches, nightlife & street food','beach')">
+    <!-- <div class="card-img-placeholder" style="background:linear-gradient(135deg,#43e97b,#38f9d7)">
+      <span class="place-icon">🌴</span>
+    </div> -->
+    <img src="sara-dubler-Koei_7yYtIo-unsplash.jpg">
+    <div class="card-content">
+      <h3>Thailand</h3>
+      <p class="price-tag">₹35,000</p>
+      <p class="days-tag">5 Days • Beach</p>
+      <div class="stars">⭐⭐⭐⭐</div>
+    </div>
+  </div>
+
+  <div class="card" data-price="45000" data-type="island" data-rating="4" onclick="openPlace('Bali',45000,'Tropical island with temples & rice fields','island')">
+    <!-- <div class="card-img-placeholder" style="background:linear-gradient(135deg,#fa709a,#fee140)">
+      <span class="place-icon">🌺</span>
+    </div> -->
+    <img src="sean-oulashin-KMn4VEeEPR8-unsplash.jpg">
+    <div class="card-content">
+      <h3>Bali</h3>
+      <p class="price-tag">₹45,000</p>
+      <p class="days-tag">5 Days • Island</p>
+      <div class="stars">⭐⭐⭐⭐</div>
+    </div>
+  </div>
+
+  <div class="card" data-price="60000" data-type="city" data-rating="4" onclick="openPlace('Italy',60000,'Food, art, history & ancient ruins','city')">
+    <!-- <div class="card-img-placeholder" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb)">
+      <span class="place-icon">🏛️</span>
+    </div> -->
+    <img src="sorasak-_UIN-pFfJ7c-unsplash.jpg">
+    <div class="card-content">
+      <h3>Italy</h3>
+      <p class="price-tag">₹60,000</p>
+      <p class="days-tag">7 Days • City</p>
+      <div class="stars">⭐⭐⭐⭐</div>
+    </div>
+  </div>
+
+  <div class="card" data-price="55000" data-type="city" data-rating="4" onclick="openPlace('Turkey',55000,'Cultural blend of East & West','city')">
+    <!-- <div class="card-img-placeholder" style="background:linear-gradient(135deg,#f77062,#fe5196)">
+      <span class="place-icon">🕌</span>
+    </div> -->
+    <img src="timur-garifov-p2RbLnqWPVY-unsplash.jpg">
+    <div class="card-content">
+      <h3>Turkey</h3>
+      <p class="price-tag">₹55,000</p>
+      <p class="days-tag">6 Days • City</p>
+      <div class="stars">⭐⭐⭐⭐</div>
+    </div>
+  </div>
+
+  <div class="card" data-price="65000" data-type="city" data-rating="5" onclick="openPlace('London',65000,'Historic city with Big Ben & royal heritage','city')">
+    <!-- <div class="card-img-placeholder" style="background:linear-gradient(135deg,#30cfd0,#330867)">
+      <span class="place-icon">🎡</span>
+    </div> -->
+    <img src="wu-jianxiong-UniC8xhlzaE-unsplash.jpg">
+    <div class="card-content">
+      <h3>London</h3>
+      <p class="price-tag">₹65,000</p>
+      <p class="days-tag">6 Days • City</p>
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+    </div>
+  </div>
+
+  <div class="card" data-price="30000" data-type="beach" data-rating="4" onclick="openPlace('Goa',30000,'Sun, sand, beaches & nightlife in India','beach')">
+    <!-- <div class="card-img-placeholder" style="background:linear-gradient(135deg,#ff9a9e,#fad0c4)">
+      <span class="place-icon">🌊</span>
+    </div> -->
+    <img src="goa.jpg">
+    <div class="card-content">
+      <h3>Goa</h3>
+      <p class="price-tag">₹30,000</p>
+      <p class="days-tag">4 Days • Beach</p>
+      <div class="stars">⭐⭐⭐⭐</div>
+    </div>
+  </div>
+
+  <div class="card" data-price="25000" data-type="mountains" data-rating="4" onclick="openPlace('Manali',25000,'Snowy mountains & adventure sports','mountains')">
+    <!-- <div class="card-img-placeholder" style="background:linear-gradient(135deg,#89f7fe,#66a6ff)">
+      <span class="place-icon">🏔️</span>
+    </div> -->
+    <img src="manali.jpg">
+    <div class="card-content">
+      <h3>Manali</h3>
+      <p class="price-tag">₹25,000</p>
+      <p class="days-tag">5 Days • Mountains</p>
+      <div class="stars">⭐⭐⭐⭐</div>
+    </div>
+  </div>
+
+  <div class="card" data-price="75000" data-type="city" data-rating="5" onclick="openPlace('New York',75000,'The city that never sleeps','city')">
+    <!-- <div class="card-img-placeholder" style="background:linear-gradient(135deg,#ffecd2,#fcb69f)">
+      <span class="place-icon">🗽</span>
+    </div> -->
+    <img src="new yok.jpg">
+    <div class="card-content">
+      <h3>New York</h3>
+      <p class="price-tag">₹75,000</p>
+      <p class="days-tag">7 Days • City</p>
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+    </div>
+  </div>
+
+  <div class="card" data-price="85000" data-type="island" data-rating="5" onclick="openPlace('Santorini',85000,'White buildings, blue domes & sunsets','island')">
+    <!-- <div class="card-img-placeholder" style="background:linear-gradient(135deg,#a1c4fd,#c2e9fb)">
+      <span class="place-icon">🌅</span>
+    </div> -->
+    <img src="santorini.jpg">
+    <div class="card-content">
+      <h3>Santorini</h3>
+      <p class="price-tag">₹85,000</p>
+      <p class="days-tag">6 Days • Island</p>
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+    </div>
+  </div>
+
+  <div class="card" data-price="20000" data-type="mountains" data-rating="4" onclick="openPlace('Shimla',20000,'Queen of Hills - serene & beautiful','mountains')">
+    <!-- <div class="card-img-placeholder" style="background:linear-gradient(135deg,#d4fc79,#96e6a1)">
+      <span class="place-icon">🏡</span>
+    </div> -->
+    <img src="shimla.jpg">
+    <div class="card-content">
+      <h3>Shimla</h3>
+      <p class="price-tag">₹20,000</p>
+      <p class="days-tag">4 Days • Mountains</p>
+      <div class="stars">⭐⭐⭐⭐</div>
+    </div>
+  </div>
+
+</section>
+
+<!-- TRAVEL PLANNER -->
+<div class="planner">
+  <h2>🧭 Smart Travel Planner</h2>
+  <p style="color:#666;margin-bottom:15px;font-size:14px;">Get AI-powered destination suggestions based on your budget & duration</p>
+  <input type="number" id="budget" placeholder="💰 Enter Budget (₹)" min="5000">
+  <input type="number" id="days" placeholder="📅 Number of Days" min="1">
+  <select id="tripType">
+    <option value="">👥 Trip Type</option>
+    <option value="solo">Solo</option>
+    <option value="couple">Couple / Honeymoon</option>
+    <option value="family">Family</option>
+    <option value="friends">Friends Group</option>
+  </select>
+  <select id="preference">
+    <option value="">🌍 Preference</option>
+    <option value="beach">Beach & Islands</option>
+    <option value="mountains">Mountains & Trek</option>
+    <option value="city">City & Culture</option>
+    <option value="adventure">Adventure</option>
+  </select>
+  <button onclick="generatePlan()">✨ Generate Plan</button>
+  <div id="planResult" class="plan-result" style="display:none;"></div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 TravelX — Explore The World</p>
+  <p>📞 +91 7845634598 &nbsp;|&nbsp; 📧 support@travelx.com</p>
+</footer>
+
+<!-- CHATBOT BUTTON -->
+<button class="chat-btn" onclick="toggleChat()">💬</button>
+
+<!-- CHATBOT -->
+<div id="chatbox" class="chatbox hidden">
+  <div class="chat-header">
+    <span>🤖 TravelX Assistant</span>
+    <button onclick="toggleChat()">✕</button>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div class="bot-msg">👋 Hi! I'm your travel assistant. Ask me anything about destinations, budget, or bookings!</div>
+  </div>
+  <div class="chat-footer">
+    <input type="text" id="chatInput" placeholder="Ask me anything..." onkeydown="if(event.key==='Enter') sendMsg()">
+    <button onclick="sendMsg()">➤</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

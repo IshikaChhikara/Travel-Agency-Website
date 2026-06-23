@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Bookings - TravelX</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav>
+  <h2>TravelX ✈️</h2>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="mybookings.html">My Bookings</a>
+    <a href="wishlist.html">Wishlist ❤️</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <h2>🗂️ My Bookings</h2>
+  <p>Track all your upcoming & past trips</p>
+</div>
+
+<div class="list-container" id="bookings">
+  <!-- Loaded by JS -->
+</div>
+
+<!-- CHATBOT BUTTON -->
+<button class="chat-btn" onclick="toggleChat()">💬</button>
+<div id="chatbox" class="chatbox hidden">
+  <div class="chat-header">
+    <span>🤖 TravelX Assistant</span>
+    <button onclick="toggleChat()">✕</button>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div class="bot-msg">👋 Hi! Need help managing your bookings?</div>
+  </div>
+  <div class="chat-footer">
+    <input type="text" id="chatInput" placeholder="Ask me anything..." onkeydown="if(event.key==='Enter') sendMsg()">
+    <button onclick="sendMsg()">➤</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
