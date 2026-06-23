@@ -15,7 +15,7 @@ A responsive travel booking website built using HTML, CSS, and JavaScript.
 - JavaScript
 
 ## 🚀 Live Demo
-https://jyoti-jindal685.github.io/travel-agency-website
+https://ishikachhikara.github.io/Travel-Agency-Website/
 
 ## 👩‍💻 Contributors
 - IshikaChhikara
